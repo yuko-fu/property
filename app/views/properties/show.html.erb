@@ -25,5 +25,12 @@
   <%= @property.remark %>
 </p>
 
+<% @nearest_stations.each do |nearest_station| %>
+  <% if @property.nearest_stations.any? %>
+    <%= nearest_station.route %>
+    <%= nearest_station.station_name %>
+    <%= nearest_station.on_foot %>
+  <% end %>
+<% end %>
 <%= link_to 'Edit', edit_property_path(@property) %> |
 <%= link_to 'Back', properties_path %>

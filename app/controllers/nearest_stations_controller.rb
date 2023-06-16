@@ -21,7 +21,7 @@ class NearestStationsController < ApplicationController
 
     respond_to do |format|
       if @nearest_station.save
-        format.html { redirect_to @nearest_station, notice: "Nearest station was successfully created." }
+        format.html { redirect_to edit_property_path, notice: "Nearest station was successfully created." }
         format.json { render :show, status: :created, location: @nearest_station }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -56,6 +56,6 @@ class NearestStationsController < ApplicationController
     end
 
     def nearest_station_params
-      params.require(:nearest_station).permit(:route, :station_name, :property_id)
+      params.require(:nearest_station).permit(:route, :station_name, :on_foot, :property_id)
     end
 end

@@ -7,7 +7,7 @@
 
 <p>
   <strong>賃料:</strong>
-  <%= converting_to_jpy(@property.rent) %>円
+  <%= @property.rent %>円
 </p>
 
 <p>
@@ -33,19 +33,20 @@
   
       <div class="route">
         <strong>路線名</strong>
-        <%= nearest_station.text_field :route %>
-      </div>
+        <%= nearest_station.route %>
+      </div><br>
   
       <div class="station_name">
         <strong>駅名</strong>
-        <%= nearest_station.text_field :station_name %>
-      </div>
+        <%= nearest_station.station_name %>
+      </div><br>
   
       <div class="on_foot">
       <strong>徒歩分数</strong>
-        <%= nearest_station.text_field :on_foot %>分
-      </div>
+        <%= nearest_station.on_foot %>分
+      </div><br>
   
-      <% end %>
-<%= link_to 'Edit', edit_property_path(@property) %> |
-<%= link_to 'Back', properties_path %>
+    <% end %>
+  <% end %>
+<%= link_to '編集', edit_property_path(@property) %> |
+<%= link_to '戻る', properties_path %>

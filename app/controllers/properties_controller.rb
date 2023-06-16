@@ -15,6 +15,7 @@ class PropertiesController < ApplicationController
   end
 
   def edit
+    @nearest_station = @property.nearest_stations.build
   end
 
   def create
@@ -57,6 +58,6 @@ class PropertiesController < ApplicationController
     end
 
     def property_params
-      params.require(:property).permit(:property_name, :rent, :address, :age, :remark,nearest_stations_attributes: [:id,:routes, :station_name, :on_foot, :property_id, :_destroy])
+      params.require(:property).permit(:property_name, :rent, :address, :age, :remark,nearest_stations_attributes: [:id,:route, :station_name, :on_foot, :property_id, :_destroy])
     end
 end

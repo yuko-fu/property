@@ -1,0 +1,32 @@
+<%= form_with(model: nearest_station, local: true) do |form| %>
+  <% if nearest_station.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(nearest_station.errors.count, "error") %> prohibited this nearest_station from being saved:</h2>
+
+      <ul>
+        <% nearest_station.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :路線名 %>
+    <%= form.text_field :route %>
+  </div>
+
+  <div class="field">
+    <%= form.label :駅名 %>
+    <%= form.text_field :station_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :徒歩分数 %>
+    <%= form.text_field :on_foot %>分
+  </div>
+
+  <div class="actions">
+    <%= form.submit'登録する' %>
+  </div>
+<% end %>
